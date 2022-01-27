@@ -1,0 +1,247 @@
+{% extends "portal/base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- ##### Welcome Area Start ##### -->
+    {% comment %} <img src="{% static 'Base/img/bg-img/bg-1.jpg' %}" alt=""> {% endcomment %}
+    <section class="welcome_area bg-img background-overlay">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="hero-content">
+                        <h6 style="color:white;">Uwal Group</h6>
+                        <h2 style="font-size:6rem">WELCOME</h2>
+                        <a href="mailto:info@uwal.in" class="btn essence-btn">Know more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Welcome Area End ##### -->
+
+    <!-- ##### Top Catagory Area Start ##### -->
+    <div class="single-blog-wrapper">
+        <!-- Single Blog Post Thumb -->
+        {% comment %} <div class="single-blog-post-thumb">
+            <img src="{% static 'Base/img/bg-img/bg-8.jpg' %}" alt="">
+        </div> {% endcomment %}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="regular-page-content-wrapper section-padding-80">
+                        <div class="regular-page-text">
+                            {% comment %} <h1>UWAL Group</h1> {% endcomment %}
+                            <h2>About Us</h2>
+                            <p>UWAL HEALTHCARE is one of the fastest growing and leading pharmaceutical
+                                company in India, which provides highest standard of quality products. We are into
+                                Manufacturing and Trading (Export and Domestic) of our high efficacy products
+                                across the globe. We have established world-class manufacturing facilities by
+                                leveraging state of the art technology, incorporating best practices and adhering
+                                to stringent regulatory compliance. We employ impeccable strategies which
+                                reflect our commitment and dedication towards our quality products to escalate
+                                the awareness about one of the most vital human agenda Health.</p>
+
+                            <blockquote>
+                                <span>Vision</span>
+                                <h6><i class="fa fa-quote-left" aria-hidden="true"></i> May All become Happy, May All be healthy (free from illness)
+                                    May all see what is auspicious, may no one suffer in any way.<i class="fa fa-quote-right" aria-hidden="false"></i></h6>
+                            </blockquote>
+
+                            <p>UWAL HEALTHCARE is a specialist pharmaceutical company which is involved in
+                                pursuing a multilayered growth strategy which incorporates internal products
+                                development, strategic collaborations and symbiotic acquisition of businesses and
+                                pharmaceutical products. Our focus is to make quality pharma products better by
+                                finding effective ways to deliver them with greater safety, purity, stability and
+                                effectiveness. We always define our success in human terms and thus are proud of
+                                our accomplishment to provide the society with 100% safe and economical
+                                pharmaceuticals and healthcare products.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div class="top_catagory_area section-padding-80 clearfix">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Single Catagory -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url('Base\img\bg-img\bg-2.jpg');">
+                        <div class="catagory-content">
+                            <a href="#">Clothing</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Catagory -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Base/img/bg-img/bg-3.jpg);">
+                        <div class="catagory-content">
+                            <a href="#">Shoes</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Catagory -->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(Base/img/bg-img/bg-4.jpg);">
+                        <div class="catagory-content">
+                            <a href="#">Accessories</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <!-- ##### Top Catagory Area End ##### -->
+
+    <!-- ##### CTA Area Start ##### -->
+     <div class="cta-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content bg-img background-overlay" >
+                        <div class="h-100 d-flex align-items-center justify-content-end">
+                            <div class="cta--text">
+                                <h6></h6>
+                                <h2>Cataloge</h2>
+                                <a href="https://online.fliphtml5.com/yyjoi/nfeq/" target="Blank" class="btn essence-btn">Open</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- ##### CTA Area End ##### -->
+
+    <!-- ##### New Arrivals Area Start ##### -->
+    <section class="new_arrivals_area section-padding-80 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading text-center">
+                        <h2>Popular Products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="popular-products-slides owl-carousel">
+
+                        <!-- Single Product -->
+                        {% for product in product %}
+                        <div class="single-product-wrapper">
+                            
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="{{product.image.url}}" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="{{product.image2.url}}" alt="">
+                                <!-- Favourite -->
+                                {% comment %} <div class="product-favourite">
+                                    <a href="#" class="favme fa fa-heart"></a>
+                                </div> {% endcomment %}
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>{{product.product_type}}</span>
+                                <a href="{% url 'single_Product' product_id=product.id %}">
+                                    <h6>{{product.name}}</h6>
+                                </a>
+                                <p class="product-price">{{product.price}}</p>
+                                
+
+                                <!-- Hover Content -->
+                                {% comment %} <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                                    </div>
+                                </div> {% endcomment %}
+                            </div>
+                           
+                        </div>
+                        {% endfor %}
+                        <!-- Single Product -->
+                        <!-- Single Product -->
+
+                        <!-- Single Product -->
+                        {% comment %} <div class="single-product-wrapper">
+                            <!-- Product Image -->
+                            <div class="product-img">
+                                <img src="img/product-img/product-4.jpg" alt="">
+                                <!-- Hover Thumb -->
+                                <img class="hover-img" src="img/product-img/product-5.jpg" alt="">
+
+                                <!-- Product Badge -->
+                                <div class="product-badge new-badge">
+                                    <span>New</span>
+                                </div>
+
+                                <!-- Favourite -->
+                                <div class="product-favourite">
+                                    <a href="#" class="favme fa fa-heart"></a>
+                                </div>
+                            </div>
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <span>mango</span>
+                                <a href="single-product-details.html">
+                                    <h6>PETITE Belted Jumper Dress</h6>
+                                </a>
+                                <p class="product-price">$80.00</p>
+
+                                <!-- Hover Content -->
+                                <div class="hover-content">
+                                    <!-- Add to Cart -->
+                                    <div class="add-to-cart-btn">
+                                        <a href="#" class="btn essence-btn">Add to Cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### New Arrivals Area End ##### -->
+
+    <!-- ##### Brands Area Start ##### -->
+    <div class="brands-area d-flex align-items-center justify-content-between  popular-products-slides">
+        <!-- Brand Logo -->
+        {% comment %} {% for category in categories %}
+        <div class="single-brands-logo">
+            <h3>{{category.name}}</h3>
+        </div>
+        {% endfor %} {% endcomment %}
+        <!-- Brand Logo -->
+         <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/brand2.png' %}" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/livwal.png' %}" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/brand3.png' %}" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/brand4.png' %}" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/brand5.png' %}" alt="">
+        </div>
+        <!-- Brand Logo -->
+        <div class="single-brands-logo">
+            <img src="{% static 'Base/img/core-img/brand6.png' %}" alt="">
+        </div> 
+    </div>
+    <!-- ##### Brands Area End ##### -->
+{% endblock content %}
+   

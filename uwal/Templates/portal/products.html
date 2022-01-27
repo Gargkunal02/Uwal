@@ -1,0 +1,297 @@
+{% extends "portal/base.html" %}
+{% load static %}
+{% block content %}
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    
+<!-- body -->
+
+    {% comment %} <div id="category" class="section dark_bg layout_padding">
+        <div class="col-lg-3">
+            <div class="list-group">
+                {% for category in categories %}
+                <a href="/products/?category={{category.id}}" class="list-group-item list-group-item-action ">{{category.name}}</a>
+                <!-- <a href="#" class="list-group-item list-group-item-action">Item</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Disabled item</a> -->
+                {% endfor %}
+            </div>
+    </div> 
+
+        <div class="container col-lg-8">
+            <div class="row">
+               <div class="col-md-12">
+                    <div class="heading full text_align_center">
+                        <h2 class="white_font full text_align_center">Our Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for product in product %}
+               <div class="col-md-4 margin_top_30">
+                    <div class="full fr">
+                        <img class="img-responsive" src="{{product.image.url}}" alt="#" />
+                    </div>
+                    <div class="full text_align_center">
+                        <h3 class="white_font">{{product.name}}<br><strong class="theme_blue">{{product.price}}</strong></h3>
+                        {% comment %} <h4> {{product.image.url}}</h4>{% static 'Base/images/f1.png' %} 
+                    </div>   
+                </div>
+                {% comment %} <div class="col-md-4 margin_top_30">
+                    <div class="full fr">
+                        <img class="img-responsive" src="images/f2.png" alt="#" />
+                    </div>
+                    <div class="full text_align_center">
+                        <h3 class="white_font">Pineapple<br><strong class="theme_blue">Fresh Fruit</strong></h3>
+                    </div>
+                </div>
+                <div class="col-md-4 margin_top_30">
+                    <div class="full fr">
+                        <img class="img-responsive" src="images/f3.png" alt="#" />
+                    </div>
+                    <div class="full text_align_center">
+                        <h3 class="white_font">Bananas<br><strong class="theme_blue">Fresh Fruit</strong></h3>
+                    </div>
+                </div> 
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end section -->
+    <!-- section -->
+    {% comment %} <div class="section layout_padding">
+        <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                    <div class="full main_heading_1">
+                        <h2>Fresh Lemon</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing el sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure doloreprehenderin </p>
+                    </div>   
+                    <div class="full margin_top_30">
+                        <a class="main_bt" href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-6 margin_top_30 padding_right_0">
+                    <div class="full">
+                        <img src="images/green_fr.png" alt="#" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- end section -->
+<!-- section -->
+    <!-- footer -->
+    <!-- end footer -->
+    <!-- Javascript files-->
+   {% endcomment %}
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Products</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Shop Grid Area Start ##### -->
+    <section class="shop_grid_area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="shop_sidebar_area">
+
+                        <!-- ##### Single Widget ##### -->
+                        <div class="widget catagory mb-50">
+                            <!-- Widget Title -->
+                            <h6 class="widget-title mb-30">BRANDS</h6>
+
+                            <!--  Catagories  -->
+                            <div class="catagories-menu">
+                                <ul id="menu-content2" class="menu-content collapse show">
+                                    <li><a href="/products/" class="sub-menu collapse">All Products</a>
+                                    {% for category in categories %}
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse">
+                                    <a href="/products/?category={{category.id}}" class="sub-menu collapse">{{category.name}}</a>
+                                    {% endfor %}
+                                </ul>
+                               
+                            </div>
+                        </div>
+
+                        {% comment %} <div class="widget catagory mb-50">
+                            <!-- Widget Title -->
+                            <h6 class="widget-title mb-30">Type</h6>
+
+                            <!--  Catagories  -->
+                            <div class="catagories-menu">
+                                
+                                <ul id="menu-content2" class="menu-content collapse show">
+                                    <li><a href="/products/" class="sub-menu collapse">All Products</a>
+                                    {% for product in product %}
+                                    <!-- Single Item -->
+                                    <li data-toggle="collapse">
+                                    <a href="/products/?product={{product.product_type}}" class="sub-menu collapse">{{product.id}}.{{product.product_type}}</a>
+                                    {% endfor %}
+                                </ul>
+                               
+                            </div>
+                        </div> {% endcomment %}
+
+                        <!-- ##### Single Widget ##### -->
+                        {% comment %} <div class="widget price mb-50">
+                            <!-- Widget Title -->
+                            <h6 class="widget-title mb-30">Filter by</h6>
+                            <!-- Widget Title 2 -->
+                            <p class="widget-title2 mb-30">Price</p>
+
+                            <div class="widget-desc">
+                                <div class="slider-range">
+                                    <div data-min="10" data-max="7000" data-unit="Rs." class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="49" data-value-max="360" data-label-result="Range:">
+                                        <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                        <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+                                    </div>
+                                    <div class="range-price">Range: $49.00 - $360.00</div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+
+                        <!-- ##### Single Widget ##### -->
+                        {% comment %} <div class="widget color mb-50">
+                            <!-- Widget Title 2 -->
+                            <p class="widget-title2 mb-30">Color</p>
+                            <div class="widget-desc">
+                                <ul class="d-flex">
+                                    <li><a href="#" class="color1"></a></li>
+                                    <li><a href="#" class="color2"></a></li>
+                                    <li><a href="#" class="color3"></a></li>
+                                    <li><a href="#" class="color4"></a></li>
+                                    <li><a href="#" class="color5"></a></li>
+                                    <li><a href="#" class="color6"></a></li>
+                                    <li><a href="#" class="color7"></a></li>
+                                    <li><a href="#" class="color8"></a></li>
+                                    <li><a href="#" class="color9"></a></li>
+                                    <li><a href="#" class="color10"></a></li>
+                                </ul>
+                            </div>
+                        </div> {% endcomment %}
+
+                        <!-- ##### Single Widget ##### -->
+                        {% comment %} <div class="widget brands mb-50">
+                            <!-- Widget Title 2 -->
+                            <p class="widget-title2 mb-30">Brands</p>
+                            <div class="widget-desc">
+                                <ul>
+                                    <li><a href="#">Asos</a></li>
+                                    <li><a href="#">Mango</a></li>
+                                    <li><a href="#">River Island</a></li>
+                                    <li><a href="#">Topshop</a></li>
+                                    <li><a href="#">Zara</a></li>
+                                </ul>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-9">
+                    <div class="shop_grid_product_area">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="product-topbar d-flex align-items-center justify-content-between">
+                                    <!-- Total Products -->
+                                    <div class="total-products">
+                                        <p><span>{{count}}</span> products found</p>
+                                    </div>
+                                    <!-- Sorting -->
+                                    {% comment %} <div class="product-sorting d-flex">
+                                        <p>Sort by:</p>
+                                        <form action="#" method="get">
+                                            <select name="select" id="sortByselect">
+                                                <option value="value">Newest</option>
+                                                <option value="value">Highest Price</option>
+                                                <option value="value">Lowest Price</option>
+                                                {% comment %} <option value="value">Price: $$ - $</option>
+                                                <option value="value">Price: $ - $$</option> 
+                                            </select>
+                                            <input type="submit" class="d-none" value="">
+                                        </form>
+                                    </div> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- Single Product -->
+                            {% for product in product %}
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="single-product-wrapper">
+                                    <!-- Product Image -->
+                                    <div class="product-img">
+                                        
+                                        <img src="{{product.image.url}}" alt="" style="width:255px;height:255px;">
+                                        
+                                        <!-- Hover Thumb -->
+                                        <img class="hover-img" src="{{product.image2.url}}" alt="" >
+
+                                        <!-- Product Badge -->
+                                        {% comment %} <div class="product-badge offer-badge">
+                                            <span>-30%</span>
+                                        </div> {% endcomment %}
+                                        <!-- Favourite -->
+                                        {% comment %} <div class="product-favourite">
+                                            <a href="#" class="favme fa fa-heart"></a>
+                                        </div> {% endcomment %}
+                                    </div>
+
+                                    <!-- Product Description -->
+                                    <div class="product-description">
+                                        <span>{{product.product_type}}</span>
+                                        <a href="single-product-details.html">
+                                            <h6>{{product.name}}</h6>
+                                        </a>
+                                        <p class="product-price">₹{{product.price}}</p>
+
+                                        <!-- Hover Content -->
+                                        <div class="hover-content">
+                                            <!-- Add to Cart -->
+                                            <div class="add-to-cart-btn">
+                                                
+                                                <a href="{% url 'single_Product' product_id=product.id %}" class="btn essence-btn" >Know More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- Pagination -->
+                    {% comment %} <nav aria-label="navigation">
+                        <ul class="pagination mt-50 mb-70">
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link" href="#">21</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                        </ul>
+                    </nav> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+    <!-- ##### Shop Grid Area End ##### -->
+
+ 

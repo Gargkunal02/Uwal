@@ -1,0 +1,29 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="contact-area d-flex align-items-center">
+
+        {% comment %} <div class="google-map">
+            <div id="googleMap"></div>
+        </div> {% endcomment %}
+
+        <div class="google-map">
+            <iframe class="google-map"width="500" height="300" src="https://api.maptiler.com/maps/basic/?key=Lhs63oLbT3BwzJyxnkKg#1.0/28.895515/76.606613"></iframe>
+        </div>
+        
+
+        <div class="contact-info">
+            <h2>How to Find Us</h2>
+            <p>Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
+
+            <div class="contact-address mt-50">
+                <p><span>address:</span> Rohtak</p>
+                <p><span>telephone:</span> +91 99587 94886</p>
+                <p style="margin-top: 0%;"><span>Mail:</span><a href="mailto:info@uwal.in">info@uwal.in</a></p>
+                <!-- <p><span>Mail:</span><a href="mailto:contact@essence.com">Uwal@uwal.in</a></p> -->
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock content %}
