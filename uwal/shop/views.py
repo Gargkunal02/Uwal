@@ -1,9 +1,6 @@
-from django.db.models.fields import NullBooleanField
 from django.shortcuts import render
 
-from django.http import HttpResponse,HttpRequest
-
-from shop.models import Product,Category
+from shop.models import Contact, Product,Category
 
 # Create your views here.
 
@@ -74,6 +71,12 @@ def singleProduct(request,product_id):
 #         return render(request,'portal/index.html')
         
 def contact(request):
+    if request.method == 'POST':
+        name=request.POST['name']
+        email=request.POST['email']
+        message=request.POST['message']
+        contact = Contact(name=name, email=email, message=message)
+        contact.save()
+        return render(request,'portal/contact.html', {'m': 'Message sent successfully.'})
     return render(request,'portal/contact.html')
-    
         

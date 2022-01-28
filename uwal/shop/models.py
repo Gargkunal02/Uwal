@@ -1,5 +1,9 @@
 # from typing_extensions import Required
+import email
+from email import message
+from unicodedata import name
 from django.db import models
+from django.forms import CharField
 # from django.db.models.fields import BLANK_CHOICE_DASH
 
 # Create your models here.
@@ -41,3 +45,10 @@ class Product(models.Model):
             return Product.objects.filter(product_type=product_type)
         else:
             return Product.objects.all()
+        
+
+class Contact(models.Model):
+    name = models.CharField(max_length=330)
+    email = models.EmailField(max_length=254)
+    message = models.CharField(max_length=5000)
+    

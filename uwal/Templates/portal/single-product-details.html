@@ -1,6 +1,8 @@
 {% extends "portal/base.html" %}
 {% load static %}
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap" rel="stylesheet">
 {% block content %}
 
     <!-- ##### Single Product Details Area Start ##### -->
@@ -20,6 +22,7 @@
 
         <!-- Single Product Description -->
         <div class="single_product_desc clearfix" style="padding-left:3px;">
+            <h1 style="font-family:'Neonderthaw', cursive;">Product Details</h1>
             {% comment %} {% for product in product %} {% endcomment %}
             
             <span>{{object.product_type}}</span>

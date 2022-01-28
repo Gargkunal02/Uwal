@@ -1,29 +1,124 @@
 {% extends 'portal/base.html' %}
 {% load static %}
 {% block content %}
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
     <div class="contact-area d-flex align-items-center">
 
         {% comment %} <div class="google-map">
             <div id="googleMap"></div>
         </div> {% endcomment %}
 
-        <div class="google-map">
-            <iframe class="google-map"width="500" height="300" src="https://api.maptiler.com/maps/basic/?key=Lhs63oLbT3BwzJyxnkKg#1.0/28.895515/76.606613"></iframe>
-        </div>
+         <div class="google-map">
+            {% comment %} <iframe class="google-map"width="500" height="300" src="https://api.maptiler.com/maps/basic/?key=Lhs63oLbT3BwzJyxnkKg#1.0/28.895515/76.606613"></iframe> {% endcomment %}
+                <div class="mapclass mb-5" id='map' style='width: 100%; height: 500px;'></div>
+    
+            <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoiYW5rdXIyNTExIiwiYSI6ImNrb2g5Z2Z6ejBuaTYzMmxjODd3ZnFnazkifQ.huFPLhgyH_XiXcrIkvv0pw';
+            var map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                center: [76.6055558,28.8957865], // starting position [lng, lat]
+                zoom: 12.5// starting zoom
+            });
+            var marker = new mapboxgl.Marker()
+              .setLngLat([76.6055558,28.8957865])
+              .addTo(map);
+            </script>
+        </div> 
+        
+            
         
 
         <div class="contact-info">
-            <h2>How to Find Us</h2>
-            <p>Mauris viverra cursus ante laoreet eleifend. Donec vel fringilla ante. Aenean finibus velit id urna vehicula, nec maximus est sollicitudin.</p>
-
-            <div class="contact-address mt-50">
+            <h2>Contact Us</h2>
+            <p>We value your feedback as we are committed
+                to continuously improving our products and services</p>
+            
+            <div class="contact-address mt-50 mb-4">
                 <p><span>address:</span> Rohtak</p>
                 <p><span>telephone:</span> +91 99587 94886</p>
                 <p style="margin-top: 0%;"><span>Mail:</span><a href="mailto:info@uwal.in">info@uwal.in</a></p>
                 <!-- <p><span>Mail:</span><a href="mailto:contact@essence.com">Uwal@uwal.in</a></p> -->
             </div>
+
+            <!-- <form action="" method="post">
+               <h3>Get in touch</h3> 
+              <div class="form-group">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Enter your name">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Email">
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Message">
+                
+                <small id="helpId" class="form-text text-muted">Help text</small> 
+              </div>
+            </form> -->
+
+
+            <form method="POST">
+              {% csrf_token %}
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <h5>Get in touch</h5>
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="text" id="form3Example1" class="form-control" placeholder="Enter your name" name="name" id="name" />
+                    <!-- <label class="form-label" for="form3Example1">First name</label> -->
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <input type="email" id="form3Example2" class="form-control" placeholder="Email" name="email" id="email"/>
+                    <!-- <label class="form-label" for="form3Example2">Last name</label> -->
+                  </div>
+                </div>
+              </div>            
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <textarea class="form-control" id="form6Example7" rows="4" id="form3Example4" class="form-control" placeholder="Message" name="message" id="message"></textarea>
+                <!-- <label class="form-label" for="form3Example4">Password</label> -->
+              </div>
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">SEND</button>
+              <h4>{{m}}</h4>
+            </form>
         </div>
 
     </div>
 
     {% endblock content %}
+
+    <script>
+        function initMap() {
+          var uluru = {
+            lat: 33.21,
+              lng: 76.21
+          };
+          var grayStyles = [{
+            featureType: "all",
+            stylers: [{
+              saturation: -90
+            },
+            {
+              lightness: 50
+            }
+            ]
+          },
+          {
+            elementType: 'labels.text.fill',
+            stylers: [{
+                color: '#ccdee9'
+            }]
+          }
+          ];
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+              lat: 30.21,
+                  lng: 76.21
+            },
+            zoom: 9,
+            styles: grayStyles,
+            scrollwheel: false
+          });
+        }
+      </script>
